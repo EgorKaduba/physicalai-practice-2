@@ -83,6 +83,7 @@ def main():
 
     env_cfg = registry.get_default_config(ENV_NAME)
     apply_mjx_overrides_to_playground_cfg(env_cfg)
+    env_cfg.reward_config.scales.gripper_box = 0.0
     raw_env = registry.load(ENV_NAME, config=env_cfg)
 
     brax_env = wrapper_torch.RSLRLBraxWrapper(
